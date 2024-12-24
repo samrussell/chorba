@@ -1,0 +1,25 @@
+CFLAGS="-O3"
+AVX1_OBJS=""
+AVX1_KEEP=""
+AVX2_OBJS=""
+AVX2_KEEP=""
+
+if test $(uname -m) = "x86_64";then
+    CFLAGS="${CFLAGS} -mno-avx"
+    if [ ! -z "$(lscpu |grep Flags |grep " pclmulqdq " |grep " avx ")" ];then
+        CFLAGS="${CFLAGS} -DAVX1_PCLMUL=1"
+        AVX1_OBJS="pclmul.o chorba_pclmul.o"
+        AVX1_KEEP="\\1"
+    fi
+    if [ ! -z "$(lscpu |grep Flags |grep " vpclmulqdq " |grep " avx2 ")" ];then
+        CFLAGS="${CFLAGS} -DAVX2_PCLMUL=1"
+        AVX2_OBJS="avx2.o"
+        AVX2_KEEP="\\1"
+    fi
+fi
+
+sed -e "s/\(.*pclmul.*\)/$AVX1_KEEP/g" \
+    -e "s/\(.*avx2.*\)/$AVX2_KEEP/g" \
+    -e "s/CFLAGS=/CFLAGS=$CFLAGS/g" \
+    -e "s/AVX1_OBJS/$AVX1_OBJS/g" \
+     Makefile.in > Makefile

@@ -1,0 +1,71 @@
+CFLAGS=
+
+test_crc: test_crc.c chorba_small_nondestructive.o chorba_118960_nondestructive.o chorba_standard.o chorba_end.o chorba_118960_destructive.o chorba_733112_destructive.o chorba_733112_nondestructive.o chorba_46952_nondestructive.o chorba_46952_destructive.o chorba_352_nondestructive.o generator_1_bit.o generator_64_bits.o generator_64_bits_unrolled_4.o generator_64_bits_unrolled_8.o generator_64_bits_unrolled_16.o generator_64_bits_unrolled_32.o sarwate.o slicing.o braiding.o AVX1_OBJS zlib_braiding/crc32.o zlib_slicing/crc32.o
+	gcc $(CFLAGS) -o test_crc test_crc.c chorba_small_nondestructive.o chorba_118960_nondestructive.o chorba_standard.o chorba_end.o chorba_118960_destructive.o chorba_733112_destructive.o chorba_733112_nondestructive.o chorba_46952_nondestructive.o chorba_46952_destructive.o chorba_352_nondestructive.o generator_1_bit.o generator_64_bits.o generator_64_bits_unrolled_4.o generator_64_bits_unrolled_8.o generator_64_bits_unrolled_16.o generator_64_bits_unrolled_32.o sarwate.o slicing.o braiding.o AVX1_OBJS zlib_braiding/crc32.o zlib_slicing/crc32.o
+
+chorba_small_nondestructive.o: chorba_small_nondestructive.c
+	gcc $(CFLAGS) -c chorba_small_nondestructive.c -o chorba_small_nondestructive.o
+
+chorba_118960_nondestructive.o: chorba_118960_nondestructive.c
+	gcc $(CFLAGS) -c chorba_118960_nondestructive.c -o chorba_118960_nondestructive.o
+
+chorba_118960_destructive.o: chorba_118960_destructive.c
+	gcc $(CFLAGS) -c chorba_118960_destructive.c -o chorba_118960_destructive.o
+
+chorba_733112_destructive.o: chorba_733112_destructive.c
+	gcc $(CFLAGS) -c chorba_733112_destructive.c -o chorba_733112_destructive.o
+
+chorba_733112_nondestructive.o: chorba_733112_nondestructive.c
+	gcc $(CFLAGS) -c chorba_733112_nondestructive.c -o chorba_733112_nondestructive.o
+
+chorba_46952_nondestructive.o: chorba_46952_nondestructive.c
+	gcc $(CFLAGS) -c chorba_46952_nondestructive.c -o chorba_46952_nondestructive.o
+
+chorba_46952_destructive.o: chorba_46952_destructive.c
+	gcc $(CFLAGS) -c chorba_46952_destructive.c -o chorba_46952_destructive.o
+
+chorba_352_nondestructive.o: chorba_352_nondestructive.c
+	gcc $(CFLAGS) -c chorba_352_nondestructive.c -o chorba_352_nondestructive.o
+
+chorba_standard.o: chorba_standard.c
+	gcc $(CFLAGS) -c chorba_standard.c -o chorba_standard.o
+
+chorba_end.o: chorba_end.c
+	gcc $(CFLAGS) -c chorba_end.c -o chorba_end.o
+
+generator_1_bit.o: generator_1_bit.c
+	gcc $(CFLAGS) -c generator_1_bit.c -o generator_1_bit.o
+
+generator_64_bits.o: generator_64_bits.c
+	gcc $(CFLAGS) -c generator_64_bits.c -o generator_64_bits.o
+
+generator_64_bits_unrolled_4.o: generator_64_bits_unrolled_4.c
+	gcc $(CFLAGS) -c generator_64_bits_unrolled_4.c -o generator_64_bits_unrolled_4.o
+
+generator_64_bits_unrolled_8.o: generator_64_bits_unrolled_8.c
+	gcc $(CFLAGS) -c generator_64_bits_unrolled_8.c -o generator_64_bits_unrolled_8.o
+
+generator_64_bits_unrolled_16.o: generator_64_bits_unrolled_16.c
+	gcc $(CFLAGS) -c generator_64_bits_unrolled_16.c -o generator_64_bits_unrolled_16.o
+
+generator_64_bits_unrolled_32.o: generator_64_bits_unrolled_32.c
+	gcc $(CFLAGS) -c generator_64_bits_unrolled_32.c -o generator_64_bits_unrolled_32.o
+
+sarwate.o: sarwate.c
+	gcc $(CFLAGS) -c sarwate.c -o sarwate.o
+
+slicing.o: slicing.c
+	gcc $(CFLAGS) -c slicing.c -o slicing.o
+
+braiding.o: braiding.c
+	gcc $(CFLAGS) -c braiding.c -o braiding.o
+
+pclmul.o: pclmul.c
+	gcc $(CFLAGS) -c pclmul.c -o pclmul.o
+
+chorba_pclmul.o: chorba_pclmul.c
+	gcc $(CFLAGS) -c chorba_pclmul.c -o chorba_pclmul.o
+
+.PHONY: clean
+clean:
+	rm test_crc *.o

@@ -1,0 +1,6 @@
+[submodule "zlib_braiding"]
+	path = zlib_braiding
+	url = https://github.com/madler/zlib
+[submodule "zlib_slicing"]
+	path = zlib_slicing
+	url = git@github.com:samrussell/zlib
