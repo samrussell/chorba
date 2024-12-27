@@ -85,6 +85,9 @@ int main (int argc, char* argv[]) {
     else if(!strcmp(algorithm, "chorba_small_nondestructive")) {
         calc_crc = chorba_small_nondestructive;
     }
+    else if(!strcmp(algorithm, "chorba_small_nondestructive_generator")) {
+        calc_crc = chorba_small_nondestructive_generator;
+    }
     else if(!strcmp(algorithm, "chorba_standard")) {
         calc_crc = chorba_standard;
     }

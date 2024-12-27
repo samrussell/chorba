@@ -29,6 +29,7 @@ uint32_t chorba_118960_nondestructive (uint32_t crc, char* buf, size_t len);
 uint32_t chorba_733112_destructive (uint32_t crc, char* buf, size_t len);
 uint32_t chorba_733112_nondestructive (uint32_t crc, char* buf, size_t len);
 uint32_t chorba_small_nondestructive (uint32_t crc, char* buf, size_t len);
+uint32_t chorba_small_nondestructive_generator (uint32_t crc, char* buf, size_t len);
 uint32_t chorba_standard (uint32_t crc, char* buf, size_t len);
 uint32_t chorba_end (uint32_t crc, char* buf, size_t len);
 uint32_t chorba_pclmul (uint32_t crc, char* buf, size_t len);
